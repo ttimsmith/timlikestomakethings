@@ -2,10 +2,10 @@ class Role < ActiveHash::Base
   include ActiveHash::Associations
 
   self.data = [
-    { id: 0, name: 'Member', member: true },
-    { id: 1, name: 'Admin', member: true, admin: true },
+    { id: 0, name: 'Member' },
+    { id: 1, name: 'Admin', admin: true },
   ].map do |t|
-    { admin: false }.merge(t)
+    { member: true, admin: false }.merge(t)
   end
 
   def to_s
