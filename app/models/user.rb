@@ -30,8 +30,23 @@ class User < ActiveRecord::Base
 
   def generate_slug
     if full_name.present?
-      self.slug ||= full_name.map(&:downcase).join('_')
+      self.slug ||= full_name.parameterize
     end
+  end
+
+  def parameterize(sep = '-')
+    # replace accented chars with their ascii equivalents
+    parameterized_string = self.dup
+    # Turn unwanted chars into the separator
+    parameterized_string.gsub!(/[^a-z0-9\-_]+/i, sep)
+    unless sep.nil? || sep.empty?
+      re_sep = Regexp.escape(sep)
+      # No more than one of the separator in a row.
+      parameterized_string.gsub!(/#{re_sep}{2,}/, sep)
+      # Remove leading/trailing separator.
+      parameterized_string.gsub!(/^#{re_sep}|#{re_sep}$/i, '')
+    end
+    parameterized_string.downcase
   end
 
   def set_defaults
