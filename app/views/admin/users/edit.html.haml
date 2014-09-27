@@ -1,0 +1,12 @@
+%h1= @user.name
+
+= simple_form_for [:admin, @user] do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :twitter_handle
+  = f.input :slug
+  = f.input :bio
+  = f.input :visible
+  = f.input :role_id, as: :select, collection: @roles, include_blank: false
+
+  = f.submit

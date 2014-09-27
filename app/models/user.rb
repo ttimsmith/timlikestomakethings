@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   before_validation :generate_slug
