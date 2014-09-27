@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'active_hash'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'foundation-rails'
 gem 'haml'
