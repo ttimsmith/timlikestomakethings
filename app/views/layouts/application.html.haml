@@ -36,7 +36,7 @@
                 %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
 
     %section{ role: 'main' }
-       - flash.each do |key, val|
+      - flash.each do |key, val|
         .alert-box{ data: { alert: true } }
           = val
           = link_to '&times;'.html_safe, '#', class: 'close'
