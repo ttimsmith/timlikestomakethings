@@ -1,5 +1,6 @@
 .small-12.columns
   %h1 Posts
+  %h3.subheader= link_to 'New Post', new_manage_post_path
 
   - if @posts.present?
     %ul
