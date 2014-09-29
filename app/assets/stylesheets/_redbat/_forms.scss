@@ -1,0 +1,47 @@
+/*
+
+FORMS
+-------------------------------------------
+
+*/
+
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  border-radius: 3px;
+}
+
+select {
+  max-width: 80%;
+  width: auto;
+  margin-right: 5px;
+}
+
+select[multiple="multiple"] {
+  width: 100%;
+  height: 150px;
+}
+
+textarea {
+  height: 125px;
+}
+
+.input {
+  @extend %clearfix;
+}
+
+.field_with_hint {
+  input, textarea {
+    margin-bottom: 3px;
+  }
+  margin-bottom: 1rem;
+}
+
+.hint {
+  color: #aaa;
+  display: block;
+  font-size: 75%;
+}
+
+.button {
+  margin-top: $spacing-s;
+}
