@@ -23,17 +23,16 @@
 
       %section.top-bar-section
         %ul.right
-          %li= link_to 'Live', '#'
-          %li= link_to 'Shows', '#'
-          %li= link_to 'Advertise', '#'
-          %li= link_to 'Membership', '#'
-          %li= link_to 'Contact', '#'
           - if signed_in?
+            - if current_user.admin?
+              %li= link_to 'Admin', admin_root_path
+              %li= link_to 'Posts', manage_posts_path
+
+            - if current_user.member?
+              %li= link_to 'Member Updates', posts_path
             %li.has-dropdown
               = link_to current_user.full_name, '#'
               %ul.dropdown
-                - if current_user.admin?
-                  %li= link_to 'Admin', admin_root_path
                 %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
 
     %section{ role: 'main' }

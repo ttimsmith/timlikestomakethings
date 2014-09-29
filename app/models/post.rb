@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   end
 
   # Validations
-  validates :name, presence: true
+  validates :title, presence: true
   validates :state, inclusion: { in: States::ALL }
 
   # Scopes

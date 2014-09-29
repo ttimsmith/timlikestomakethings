@@ -1,0 +1,8 @@
+.small-12.columns
+  %h1 Posts
+
+  - if @posts.present?
+    %ul
+      = render @posts
+  - else
+    %p There are no posts yet

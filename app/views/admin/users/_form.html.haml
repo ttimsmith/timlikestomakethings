@@ -1,0 +1,27 @@
+= simple_form_for [:admin, @user] do |f|
+
+  = f.input :full_name
+  = f.input :email
+
+  %hr/
+  = f.input :slug
+  = f.input :twitter_handle, hint: 'Twitter handle without the "@" symbol.'
+  = f.input :website, placeholder: 'http://example.com'
+  %hr/
+  = f.input :bio
+  %hr/
+  = f.input :role_id, as: :select, collection: @roles, include_blank: false
+
+  - if @user.new_record?
+    %hr/
+    = f.input :password
+
+  = f.submit class: 'button radius', value: "Update #{@user.full_name}"
+
+- if @user.persisted?
+  = simple_form_for [:admin, @user] do |f|
+    %hr
+    %h5 Reset Password
+    = f.input :password, label: 'New password'
+
+    = f.submit class: 'button radius', value: "Update #{@user.full_name} Password"

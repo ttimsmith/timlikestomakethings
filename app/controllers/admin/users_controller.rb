@@ -22,6 +22,7 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    @roles = Role.all
   end
 
   def update

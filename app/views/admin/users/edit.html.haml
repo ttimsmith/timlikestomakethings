@@ -1,10 +1,5 @@
-%h1= @user.full_name
+= content_for :title, 'Edit User'
+.small-12.medium-8.columns.medium-centered
+  %h1= @user.full_name
 
-= simple_form_for [:admin, @user] do |f|
-  = f.input :full_name
-  = f.input :twitter_handle
-  = f.input :slug
-  = f.input :bio
-  = f.input :role_id, as: :select, collection: @roles, include_blank: false
-
-  = f.submit
+  = render partial: 'form'

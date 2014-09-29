@@ -1,9 +1,3 @@
-%h1 New User
-
-= simple_form_for [:admin, @user] do |f|
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :email
-  = f.input :password
-
-  = f.submit
+.small-12.medium-8.columns.medium-centered
+  %h1 New User
+  = render partial: 'form'

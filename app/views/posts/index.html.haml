@@ -1,0 +1,7 @@
+%h1 Posts
+
+- if @posts.present?
+  %ul
+    = render @posts
+- else
+  %p There are currently no posts. Check back later!
