@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   before_validation :generate_slug
   before_validation :set_defaults
+
+  friendly_id :slug, use: :finders
 
   # Associations
   belongs_to_active_hash :role
