@@ -1,0 +1,26 @@
+%h1 Edit Profile
+
+= simple_form_for current_user, url: current_user_path(method: :put, secure: true) do |f|
+  = f.input :full_name
+  = f.input :email
+
+  %hr/
+  = f.input :slug
+  = f.input :twitter_handle, hint: 'Twitter handle without the "@" symbol.'
+  = f.input :website, placeholder: 'http://example.com'
+  %hr/
+  = f.input :bio
+
+  = f.submit class: 'button radius', value: "Update My Profile"
+
+= simple_form_for current_user, url: current_user_path(method: :put, secure: true) do |f|
+  %hr
+  %h5 Reset Password
+
+  = f.input :reset_password_token, :as => :hidden
+  = f.full_error :reset_password_token
+
+  = f.input :password, :label => "New password"
+  = f.input :password_confirmation, :label => "Confirm your new password", hint: 'If you’re not changing your password, leave the fields blank.'
+
+  = f.submit class: 'button radius', value: 'Update My Password'
