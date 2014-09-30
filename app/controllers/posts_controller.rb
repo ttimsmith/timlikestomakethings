@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_member_user
+  layout 'admin'
 
   def index
     @posts = Post.published.to_a

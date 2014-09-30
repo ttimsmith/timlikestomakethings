@@ -29,9 +29,11 @@ BASE TYPE
 ------------------------------------------- */
 
 body {
+	background: $bodyBackColor;
 	font-size: 110%;
 	line-height: 140%;
-	// color: $bodyColor;
+	@extend %sans;
+	color: $bodyColor;
 }
 
 // TYPE SIZE VARIABLES
@@ -53,9 +55,9 @@ $text-size-xl: 2em;
 FONTS
 ------------------------------------------- */
 
-// %sans {
-// 	font-family: ;
-// }
+%sans {
+	font-family: "ff-meta-web-pro";
+}
 
 // %serif {
 // 	font-family: ;
@@ -116,6 +118,14 @@ hr {
 
 LINKS
 ------------------------------------------- */
+
+a {
+	color: $linkColor;
+	@include transition(.2s ease-in-out);
+	&:hover {
+		color: darken($linkColor, 5%);
+	}
+}
 
 
 /*

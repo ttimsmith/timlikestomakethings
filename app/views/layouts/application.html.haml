@@ -7,6 +7,11 @@
 
     %title= content_for?(:title) ? yield(:title) : "Tim Likes to Make Things"
 
+    / Typekit Code
+    %script{:src => "//use.typekit.net/vci5orz.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tag
@@ -34,6 +39,9 @@
               = link_to current_user.full_name, '#'
               %ul.dropdown
                 %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'Login', new_user_session_path
+            %li= link_to 'Sign Up', "#"
 
     %section{ role: 'main' }
       - flash.each do |key, val|
@@ -46,22 +54,5 @@
 
     %section{ style: 'background: #EEE; margin-top: 100px'}
       .row{ style: 'padding-top: 20px' }
-        .large-3.columns
-          %h6 Dive In
-          %ul.side-nav
-            %li= link_to 'About Goodstuff.fm', '#'
-            %li= link_to 'Goodstuff.fm on iTunes', '#'
-            %li= link_to 'Master RSS Feed', '#'
-            %li= link_to 'Advertise with Us', '#'
-        .large-5.columns
-          %h6 Broadcasts
-          %ul.inline-list
-            %li= image_tag 'http://placehold.it/80x80'
-            %li= image_tag 'http://placehold.it/80x80'
-            %li= image_tag 'http://placehold.it/80x80'
-            %li= image_tag 'http://placehold.it/80x80'
-
-        .large-4.columns
-          %h6 Subscribe to the Goodstuff.fm Newsletter
 
     = javascript_include_tag 'application'

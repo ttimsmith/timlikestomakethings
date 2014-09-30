@@ -1,0 +1,30 @@
+/*
+
+HEADER
+---------------------------------------------------------
+
+*/
+
+
+.site__sidebar {
+  background: $darkColor;
+  bottom: 0;
+  top: 0;
+  padding: $spacing-s;
+  position: fixed;
+  width: 25%;
+}
+
+.site__header {
+  margin-bottom: $spacing-s;
+}
+
+.logo {
+  text-align: center;
+}
+
+.nav__list {
+  ul {
+    list-style-type: none;
+  }
+}
