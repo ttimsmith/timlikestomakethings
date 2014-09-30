@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def avatar_url(user)
-    user.avatar_url(:user_avatar) || gravatar_url(user)
+    gravatar_url(user)
   end
 
   def gravatar_url(user)
