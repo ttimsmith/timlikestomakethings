@@ -14,6 +14,9 @@ class Post < ActiveRecord::Base
     ALL = [DRAFT, PREVIEW, PUBLISHED]
   end
 
+  # Associations
+  has_many :comments, dependent: :destroy
+
   # Validations
   validates :title, presence: true
   validates :state, inclusion: { in: States::ALL }

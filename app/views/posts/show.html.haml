@@ -2,3 +2,9 @@
   %h1= @post.title
 
   = markdown @post.post_content
+
+  - if @comments.present?
+    %h4 Comments
+    = render @comments
+
+

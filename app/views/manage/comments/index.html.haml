@@ -1,0 +1,8 @@
+%h1 #{@post.title} Links
+%h3.subheader= link_to 'New Comment', new_manage_post_comment_path(@post)
+
+- if @comments.present?
+  %ul
+    = render @comments
+- else
+  %p There are no comments yet

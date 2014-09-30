@@ -6,14 +6,22 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show]
 
+  resource :user, only: [:edit, :update], as: 'current_user'
+
+  #Admin Panel
   namespace :admin do
     root to: 'users#index'
 
     resources :users, except: :destroy
   end
 
+  # Manage Panel
   namespace :manage do
-    resources :posts, except: :destroy
+    resources :posts, only: [:create, :index, :new]
+
+    resources :posts, only: [:edit, :update] do
+      resources :comments
+    end
   end
 
 end

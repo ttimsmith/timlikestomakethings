@@ -8,10 +8,12 @@ class User < ActiveRecord::Base
   before_validation :generate_slug
   before_validation :set_defaults
 
-  friendly_id :slug, use: :finders
+  friendly_id :slug, use: [:slugged, :finders]
 
   # Associations
   belongs_to_active_hash :role
+
+  has_many :comments, through: :posts
 
 
   # Validations
