@@ -2,7 +2,7 @@ class Manage::PostsController < Manage::BaseController
   before_filter :find_post, only: [:edit, :destroy, :update]
 
   def create
-    @post = current_user.posts.new post_params
+    @post = current_user.posts.create post_params
 
     if @post.errors.none?
       redirect_to manage_posts_path, flash: { success: 'Post Created!' }
@@ -13,6 +13,11 @@ class Manage::PostsController < Manage::BaseController
   end
 
   def edit
+  end
+
+  def destroy
+    @post.find.destroy
+    redirect_to manage_posts_path
   end
 
   def index
