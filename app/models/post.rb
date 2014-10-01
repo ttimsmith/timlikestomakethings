@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   end
 
   # Associations
+  belongs_to :user
   has_many :comments, dependent: :destroy
 
   # Validations
