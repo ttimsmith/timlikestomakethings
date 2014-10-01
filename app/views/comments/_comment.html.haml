@@ -1,4 +1,15 @@
-= comment.user.full_name
+%div{ class: "comment #{comment.user.role.admin ? 'admin' : ''}" }
+  .row
+    .small-2.columns
+      .comment-author__picture
+        = image_tag gravatar_url(comment.user), height: '150', width: '150'
+    .small-10.columns
+      %p.comment__author
+        %strong
+          = comment.user.full_name
+        %small
+          = comment.created_at.stamp('June 3rd, 2013')
 
-:markdown
-  #{comment.body}
+
+      :markdown
+        #{comment.body}

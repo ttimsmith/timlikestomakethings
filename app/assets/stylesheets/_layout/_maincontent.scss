@@ -33,3 +33,25 @@ MAIN CONTENT
   margin: 0;
   padding: $spacing-xs $spacing-s;
 }
+
+
+/* Posts Styles */
+
+.comments {
+  margin: 0 0 $spacing-l;
+}
+
+.comment {
+  padding: $spacing-m 0;
+  border-bottom: 1px solid $borderColor;
+}
+
+.comment-author__picture {
+  img {
+    border-radius: 150px;
+  }
+}
+
+.comment__author {
+  margin-bottom: 5px;
+}

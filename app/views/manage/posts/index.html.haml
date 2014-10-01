@@ -1,9 +1,9 @@
-.small-12.columns
-  %h1 Posts
-  %h3.subheader= link_to 'New Post', new_manage_post_path
+= content_for :title, 'Posts'
 
-  - if @posts.present?
-    %ul
-      = render @posts
-  - else
-    %p There are no posts yet
+%h3.subheader= link_to 'New Post', new_manage_post_path
+
+- if @posts.present?
+  %ul
+    = render @posts
+- else
+  %p There are no posts yet

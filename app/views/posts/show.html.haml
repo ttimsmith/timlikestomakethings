@@ -1,15 +1,14 @@
-.small-12.medium-9.columns.medium-centered
-  %h1= @post.title
+= content_for :title, "#{@post.title}"
 
-  = markdown @post.post_content
+= markdown @post.post_content
 
-  - if @comments.present?
-    %h4 Comments
+- if @comments.present?
+  %hr/
+  .comments
     = render @comments
 
-
-  %h4
+.comment__form
   = simple_form_for [@post, @comment] do |f|
-    = f.input :body, placeholder: 'Add a comment…'
+    = f.input :body, placeholder: 'Add a comment…', label_html: { class: 'hide' }
     = f.submit class: 'button radius'
 

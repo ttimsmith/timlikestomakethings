@@ -36,4 +36,13 @@ OBJECTS
       opacity: 1;
     }
   }
+  &.success {
+    background-color: $successColor;
+    border: none;
+    color: darken($successColor, 50%);
+    .close {
+      color: darken($successColor, 40%);
+      opacity: 1;
+    }
+  }
 }

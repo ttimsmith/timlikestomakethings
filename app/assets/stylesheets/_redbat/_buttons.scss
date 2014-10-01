@@ -16,6 +16,7 @@ BUTTONS
 
 button, .button {
   background: $linkColor;
+  margin-top: $spacing-xxs;
   &:hover {
     background: darken($linkColor, 10%);
   }
