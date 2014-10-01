@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # Only generate root devise routes for sessions (sign in / sign out)
   devise_for :users, only: [:passwords, :sessions], path: '', path_names: { sign_in: 'login' }
 
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:index, :show] do
+    resources :comments
+  end
 
   resource :user, only: [:edit, :update], as: 'current_user'
 

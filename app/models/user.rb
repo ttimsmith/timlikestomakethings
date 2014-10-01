@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   # Associations
   belongs_to_active_hash :role
 
-  has_many :comments, through: :posts
+  has_many :posts
+  has_many :comments
 
 
   # Validations
