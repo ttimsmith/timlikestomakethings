@@ -2,16 +2,16 @@ class Manage::CommentsController < Manage::BaseController
   before_filter :find_post
   before_filter :find_comment, only: [:destroy, :edit, :update]
 
-  def create
-    @comment = @post.comments.create(comment_params)
+  # def create
+  #   @comment = @post.comments.create(comment_params)
 
-    if @comment.errors.none?
-      redirect_to manage_post_comments_path(@post), flash: { success: 'Comment created!' }
-    else
-      flash[:error] = @comment.errors.full_messages.join(', ')
-      render :new
-    end
-  end
+  #   if @comment.errors.none?
+  #     redirect_to manage_post_comments_path(@post), flash: { success: 'Comment created!' }
+  #   else
+  #     flash[:error] = @comment.errors.full_messages.join(', ')
+  #     render :new
+  #   end
+  # end
 
   def destroy
     @post.comments.find(@comment).destroy
@@ -25,9 +25,9 @@ class Manage::CommentsController < Manage::BaseController
     @comments = @post.comments.order('created_at DESC').to_a
   end
 
-  def new
-    @comment = @post.comments.new
-  end
+  # def new
+  #   @comment = @post.comments.new
+  # end
 
   def update
     if @comment.update_attributes comment_params
