@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def require_member_user
     redirect_to new_user_session_path unless member_signed_in?
   end
+
+  def after_sign_in_path_for(user)
+    posts_path
+  end
 end

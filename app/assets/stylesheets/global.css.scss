@@ -24,15 +24,15 @@ an effort to keep the CSS as dry as possible.
 
 /*
 
-IMPORT COMPASS
+IMPORT BOURBON
 -------------------------------------------
-@compass
+@bourbon
 
-Importing the awesome-sauce that is Compass
+Importing the awesome-sauce that is Bourbon
 
 ------------------------------------------- */
 
-// @import "compass";
+@import "bourbon";
 
 
 /*
@@ -133,6 +133,8 @@ Layout Styles.
 - Pages
 
 ------------------------------------------- */
+
+@import "_layout/admin";
 
 @import "_layout/header";
 

@@ -1,0 +1,61 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Tim Likes to Make Things"
+
+    / Typekit Code
+    %script{:src => "//use.typekit.net/vci5orz.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tag
+
+  %body
+    .wrapper
+      %aside.site__sidebar
+        %header.site__header
+          .logo
+            = link_to posts_path do
+              = image_tag 'http://placehold.it/250x250'
+        %nav.site__navigation
+        - if signed_in?
+          - if current_user.admin?
+            %section.nav__list
+              %ul
+                %li
+                  %label Admin
+                %li= link_to 'Users', admin_root_path
+                %li= link_to 'Posts', manage_posts_path
+          - if current_user.member?
+            %section.nav__list
+              %ul
+                %li
+                  %label Main
+                %li= link_to 'Member Updates', posts_path
+
+      %main.site__content{ role: 'main' }
+        - flash.each do |key, val|
+          %div{ class: "alert-box #{key}", data: { alert: true } }
+            = val
+            = link_to '&times;'.html_safe, '#', class: 'close'
+
+        - if signed_in? && current_user.admin?
+          .content__top-bar
+            %ul.top-bar__links
+              %li= link_to 'New User', new_admin_user_path
+              %li= link_to 'New Post', new_manage_post_path
+              %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+
+
+        .content__wrapper
+          %h1.page-title= yield(:title)
+          .white-panel
+            = yield
+
+    = javascript_include_tag 'application'

@@ -4,3 +4,36 @@ OBJECTS
 -------------------------------------------
 
 */
+
+.wrapper {
+  @extend %clearfix;
+}
+
+
+/* Alert Boxes */
+
+.alert-box {
+  padding: $spacing-xs;
+  margin-bottom: 0;
+  .close {
+    right: 20px;
+  }
+  &.alert {
+    background-color: $alertColor;
+    border: none;
+    color: darken($alertColor, 50%);
+    .close {
+      color: darken($alertColor, 40%);
+      opacity: 1;
+    }
+  }
+  &.notice {
+    background-color: $infoColor;
+    border: none;
+    color: darken($infoColor, 50%);
+    .close {
+      color: darken($infoColor, 40%);
+      opacity: 1;
+    }
+  }
+}

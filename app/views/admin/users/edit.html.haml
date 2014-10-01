@@ -1,5 +1,3 @@
-= content_for :title, 'Edit User'
-.small-12.medium-8.columns.medium-centered
-  %h1= @user.full_name
+= content_for :title, "Edit User - #{@user.full_name}"
 
-  = render partial: 'form'
+= render partial: 'form'
