@@ -1,0 +1,35 @@
+/*
+
+MAIN CONTENT
+---------------------------------------------------------
+
+*/
+
+.site__content {
+  margin: 0 0 0 25%;
+}
+
+.content__wrapper {
+  box-shadow: 0 1px 2px darken($bodyBackColor, 3%);
+  margin: $spacing-l 0 $spacing-m $spacing-m;
+  max-width: 700px;
+}
+
+.white-panel {
+  background: white;
+  border: 1px solid darken($bodyBackColor, 5%);
+  border-top: none;
+  border-radius: 0 0 $borderRadius $borderRadius;
+  padding: $spacing-s;
+}
+
+.page-title {
+  background: $jazzColor;
+  border-radius: $borderRadius $borderRadius 0 0;
+  border: 1px solid darken($jazzColor, 5%);
+  // border-bottom: none;
+  color: white;
+  font-weight: normal;
+  margin: 0;
+  padding: $spacing-xs $spacing-s;
+}

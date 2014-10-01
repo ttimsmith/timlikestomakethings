@@ -41,17 +41,21 @@
 
       %main.site__content{ role: 'main' }
         - flash.each do |key, val|
-          .alert-box{ data: { alert: true } }
+          %div{ class: "alert-box #{key}", data: { alert: true } }
             = val
             = link_to '&times;'.html_safe, '#', class: 'close'
 
-        .content__top-bar
-          %ul.top-bar__links
-          - if signed_in? && current_user.admin?
-            %li= link_to 'New User', new_admin_user_path
-            %li= link_to 'New Post', new_manage_post_path
+        - if signed_in? && current_user.admin?
+          .content__top-bar
+            %ul.top-bar__links
+              %li= link_to 'New User', new_admin_user_path
+              %li= link_to 'New Post', new_manage_post_path
+              %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+
 
         .content__wrapper
-          = yield
+          %h1.page-title= yield(:title)
+          .white-panel
+            = yield
 
     = javascript_include_tag 'application'

@@ -4,3 +4,19 @@ BUTTONS
 ---------------------------------------------------------
 
 */
+
+
+.button {
+  @extend %sans;
+  padding: 8px 20px;
+  &.small {
+    padding: 10px 15px;
+  }
+}
+
+button, .button {
+  background: $linkColor;
+  &:hover {
+    background: darken($linkColor, 10%);
+  }
+}

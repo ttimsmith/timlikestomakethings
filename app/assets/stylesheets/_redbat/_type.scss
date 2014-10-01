@@ -68,7 +68,21 @@ FONTS
 
 HEADINGS
 ------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  color: lighten($darkColor, 15%);
+  font-weight: 700;
+  @extend %sans;
+}
 
+.subheader {
+  color: lighten($bodyColor, 5%);
+}
 
 /*
 
@@ -102,8 +116,8 @@ HR
 ------------------------------------------- */
 
 hr {
-	border: solid $borderColor;
-	// border-width: 5px 0 0;
+	border: solid lighten(#eee, 2%);
+	border-width: 5px 0 0;
 	clear: both;
 	margin: $spacing-m auto;
 	height: 0;
@@ -123,7 +137,7 @@ a {
 	color: $linkColor;
 	@include transition(.2s ease-in-out);
 	&:hover {
-		color: darken($linkColor, 5%);
+		color: darken($linkColor, 10%);
 	}
 }
 

@@ -10,6 +10,33 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   border-radius: 3px;
 }
 
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color: lighten($darkColor, 45%);
+}
+
+::-webkit-input-placeholder {
+   color: lighten($darkColor, 35%);
+   @include transition(all .2s ease-in-out);
+}
+
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {
+        color: lighten($darkColor, 45%);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: lighten($darkColor, 35%);
+   @include transition(all .2s ease-in-out);
+}
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+        color: lighten($darkColor, 45%);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: lighten($darkColor, 35%);
+   @include transition(all .2s ease-in-out);
+}
+
 select {
   max-width: 80%;
   width: auto;

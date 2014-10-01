@@ -1,10 +1,7 @@
-.small-12.medium-9.columns.medium-centered
-  %h1= @post.title
+= content_for :title, "#{@post.title}"
 
-  = markdown @post.post_content
+= markdown @post.post_content
 
-  - if @comments.present?
-    %h4 Comments
-    = render @comments
-
-
+- if @comments.present?
+  %h4 Comments
+  = render @comments

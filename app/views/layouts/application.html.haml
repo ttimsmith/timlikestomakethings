@@ -45,7 +45,7 @@
 
     %section{ role: 'main' }
       - flash.each do |key, val|
-        .alert-box{ data: { alert: true } }
+        %div{ class: "alert-box #{key}", data: { alert: true } }
           = val
           = link_to '&times;'.html_safe, '#', class: 'close'
       .row
