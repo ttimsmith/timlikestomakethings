@@ -8,3 +8,8 @@
     = render @comments
 
 
+  %h4
+  = simple_form_for [@post, @comment] do |f|
+    = f.input :body, placeholder: 'Add a comment…'
+    = f.submit class: 'button radius'
+

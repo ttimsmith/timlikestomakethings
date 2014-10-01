@@ -7,5 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.published.find(params[:id])
+    @comment = Comment.new
+
+    @comments = @post.comments.to_a
   end
 end
