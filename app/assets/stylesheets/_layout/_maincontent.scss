@@ -44,6 +44,21 @@ MAIN CONTENT
 .comment {
   padding: $spacing-m 0;
   border-bottom: 1px solid $borderColor;
+  p:last-child {
+    margin-bottom: 0;
+  }
+  &.admin {
+    // border-left: 5px solid $jazzColor;
+    &:before {
+      background: $jazzColor;
+      content: "";
+      display: block;
+      margin-top: -$spacing-m;
+      margin-bottom: $spacing-m;
+      width: 200px;
+      height: 5px;
+    }
+  }
 }
 
 .comment-author__picture {
@@ -54,4 +69,10 @@ MAIN CONTENT
 
 .comment__author {
   margin-bottom: 5px;
+  .comment__time {
+    display: inline-block;
+    color: lighten($bodyColor, 25%);
+    font-size: 85%;
+    margin-left: 10px
+  }
 }
