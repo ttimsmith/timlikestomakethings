@@ -1,9 +1,15 @@
 = content_for :title, 'Posts'
 
-%h3.subheader= link_to 'New Post', new_manage_post_path
+= link_to 'New Post', new_manage_post_path, class: 'button add-new__button radius'
 
 - if @posts.present?
-  %ul
-    = render @posts
+  %table
+    %thead
+      %tr
+        %th Post Name
+        %th Published Date
+        %th{ colspan: '2' } Jobs
+    %tbody
+      = render @posts
 - else
-  %p There are no posts yet
+  %p There aren't any post, because you haven't written any, silly!

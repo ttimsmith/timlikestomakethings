@@ -56,7 +56,11 @@ FONTS
 ------------------------------------------- */
 
 %sans {
-	font-family: "ff-meta-web-pro";
+  font-family: "proxima-nova",sans-serif;
+}
+
+%sans-secondary {
+  font-family: "proxima-nova-extra-condensed",sans-serif;
 }
 
 // %serif {
@@ -73,21 +77,46 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  color: lighten($darkColor, 15%);
+  font-weight: 700;
+  @extend %sans-secondary;
+}
+
 label {
   color: lighten($darkColor, 15%);
+  // font-size: .9em;
   font-weight: 700;
   @extend %sans;
 }
 
 .subheader {
-  color: lighten($bodyColor, 5%);
+  color: lighten($darkColor, 25%);
 }
 
 /*
 
 TEXT
 ------------------------------------------- */
+
+.size-xxs {
+  font-size: 75%;
+  margin: 2px 0;
+}
+.size-xs {
+  font-size: 85%;
+}
+.size-s {
+  font-size: 90%;
+}
+.size-m {
+  font-size: 95%;
+}
+
+.pubdate {
+  color: lighten($bodyColor, 20%);
+  margin-bottom: $spacing-xxs;
+}
 
 
 /*

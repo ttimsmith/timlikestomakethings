@@ -4,3 +4,22 @@ ADMIN
 ---------------------------------------------------------
 
 */
+
+table {
+  background: none;
+  border: none;
+  width: 100%;
+  border-spacing: 0;
+}
+
+table thead, table tfoot, table tr.even, table tr.alt, table tr:nth-of-type(even) {
+  background: lighten($darkColor, 71%);
+}
+
+table tr th, table tr td {
+  border-bottom: 1px solid lighten($darkColor, 65%);
+}
+
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td, label {
+  color: $darkColor;
+}

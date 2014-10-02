@@ -46,3 +46,13 @@ OBJECTS
     }
   }
 }
+
+
+/* Links that need to be a different color */
+
+.delete-link {
+  color: darken($alertColor, 30%);
+  &:hover, &:focus {
+    color: darken($alertColor, 25%);
+  }
+}

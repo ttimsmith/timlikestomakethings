@@ -1,7 +1,13 @@
-%h1 #{@post.title} - Comments
+= content_for :title, 'Comments'
+= content_for :subtitle, "#{@post.title}"
 
 - if @comments.present?
-  %ul
-    = render @comments
+  %table
+    %thead
+      %tr
+        %th{ colspan: '2', width: '650' } Author
+        %th Comment
+    %tbody
+      = render @comments
 - else
   %p There are no comments yet

@@ -54,7 +54,10 @@
 
 
         .content__wrapper
-          %h1.page-title= yield(:title)
+          %header.page__title
+            %h1= yield(:title)
+            - if content_for?(:subtitle)
+              %h2.subheader= yield(:subtitle)
           .white-panel
             = yield
 

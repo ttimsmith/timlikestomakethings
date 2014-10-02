@@ -12,6 +12,16 @@ BUTTONS
   &.small {
     padding: 10px 15px;
   }
+  &.add-new__button {
+    background: darken($bodyBackColor, 30%);
+    position: absolute;
+    top: 6px;
+    right: 0;
+    margin: 0;
+    &:hover, &:focus {
+      background: $linkColor;
+    }
+  }
 }
 
 button, .button {
@@ -21,3 +31,6 @@ button, .button {
     background: darken($linkColor, 10%);
   }
 }
+
+
+

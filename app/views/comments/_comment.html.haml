@@ -1,8 +1,7 @@
 %div{ class: "comment #{comment.user.role.admin ? 'admin' : ''}" }
   .row
     .small-2.columns
-      .comment-author__picture
-        = image_tag gravatar_url(comment.user), height: '150', width: '150'
+      = image_tag gravatar_url(comment.user), height: '150', width: '150', class: 'comment-author__picture'
     .small-10.columns
       %p.comment__author
         %strong

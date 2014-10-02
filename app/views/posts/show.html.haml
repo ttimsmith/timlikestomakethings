@@ -1,5 +1,10 @@
 = content_for :title, "#{@post.title}"
 
+%p.pubdate.size-xs
+  Posted by #{@post.user.full_name}
+  %span
+    = local_time_ago(@post.created_at)
+
 = markdown @post.post_content
 
 - if @comments.present?

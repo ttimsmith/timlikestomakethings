@@ -22,7 +22,7 @@ class Manage::CommentsController < Manage::BaseController
   end
 
   def index
-    @comments = @post.comments.order('created_at DESC').to_a
+    @comments = @post.comments.order('created_at ASC').to_a
   end
 
   # def new

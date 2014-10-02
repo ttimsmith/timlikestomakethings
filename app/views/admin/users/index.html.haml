@@ -1,6 +1,12 @@
 = content_for :title, 'Users'
 
-%h3.subheader= link_to 'New User', new_admin_user_path
+= link_to 'New User', new_admin_user_path, class: 'button add-new__button radius'
 
-%ul
-  = render @users
+%table
+  %thead
+    %tr
+      %th{ colspan: '2' } Name
+      %th Email
+      %th Role
+  %tbody
+    = render @users
