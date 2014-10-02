@@ -16,12 +16,12 @@ class Manage::PostsController < Manage::BaseController
   end
 
   def destroy
-    @post.find.destroy
+    @post.destroy
     redirect_to manage_posts_path
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC').all
   end
 
   def new

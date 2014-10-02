@@ -1,7 +1,7 @@
 = content_for :title, 'Member Updates'
 
 - if @posts.present?
-  %ul
+  %ul.posts
     = render @posts
 - else
   %p There are currently no posts. Check back later!

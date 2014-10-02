@@ -1,8 +1,11 @@
 = simple_form_for [:manage, @post] do |f|
-  = f.input :title
+  = f.input :title, placeholder: 'Post Title…', label_html: { class: 'hide' }, input_html: { autofocus: 'autofocus', autocomplete: 'off', class: 'modern-input'}
   - if @post.persisted?
-    = f.input :slug
-  = f.input :state, as: :select, collection: Post::States::ALL, include_blank: false
-  = f.input :post_content
+    %p.slug.size-xs
+      %strong Slug:
 
-  = f.submit class: 'button radius'
+      %span /posts/#{@post.slug}
+
+  = f.input :post_content, placeholder: 'Type you message here… (HTML and/or Markdown allowed.)', label_html: { class: 'hide' }, input_html: { class: 'modern-input'}
+
+  = f.submit class: 'button radius right'

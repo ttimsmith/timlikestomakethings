@@ -25,4 +25,12 @@ module ApplicationHelper
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=300&r=pg"
   end
 
+  def admin_signed_in?
+    signed_in? && current_user.admin?
+  end
+
+  def member_signed_in?
+    signed_in? && current_user.member?
+  end
+
 end

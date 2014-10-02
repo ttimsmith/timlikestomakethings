@@ -1,9 +1,11 @@
-= content_for :title, "#{@post.title}"
+= content_for :title, "#{@post.title.titleize}"
 
 %p.pubdate.size-xs
   Posted by #{@post.user.full_name}
   %span
     = local_time_ago(@post.created_at)
+  - if admin_signed_in?
+    &middot; #{link_to 'Edit Post', edit_manage_post_path}
 
 = markdown @post.post_content
 

@@ -6,6 +6,31 @@ FORMS
 */
 
 
+.modern-input {
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  &:focus {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+input[type="text"].modern-input {
+  font-size: 180%;
+  font-weight: 700;
+  margin-bottom: $spacing-xs;
+  @extend %sans-secondary;
+}
+
+textarea.modern-input {
+  font-size: 100%;
+  resize: none;
+  height: 250px;
+}
+
+
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
   border-radius: 3px;
 }
@@ -49,7 +74,7 @@ select[multiple="multiple"] {
 }
 
 textarea {
-  height: 125px;
+  min-height: 125px;
 }
 
 .input {

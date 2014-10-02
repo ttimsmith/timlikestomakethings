@@ -29,6 +29,18 @@ class Post < ActiveRecord::Base
     where(state: States::PUBLISHED)
   end
 
+  def self.with_comment_count
+    select("
+      posts.*,
+      (
+        SELECT COUNT(*)
+        FROM comments
+        WHERE posts.id = comments.post_id
+      ) AS comment_count
+    ").
+      references(:comments)
+  end
+
   # Instance Methods
 
   private
@@ -40,7 +52,7 @@ class Post < ActiveRecord::Base
   end
 
   def set_defaults
-    self.state ||= 'draft'
+    self.state ||= 'published'
 
     true
   end

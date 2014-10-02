@@ -1,1 +1,7 @@
-%li= link_to post.title, post_path(post)
+%li.post
+  %h3
+    = link_to post.title.titleize, post_path(post)
+    %small #{post.comment_count} #{"Comment".pluralize(post.comment_count)}
+  %p.pubdate.size-s
+    Posted on #{post.user.full_name} #{local_time_ago(post.created_at)}
+  %p.post_content= truncate(post.post_content, length: 255, omission: '…', escape: false)

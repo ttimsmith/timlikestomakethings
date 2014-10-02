@@ -10,7 +10,6 @@ MAIN CONTENT
 }
 
 .content__wrapper {
-  box-shadow: 0 1px 2px darken($bodyBackColor, 3%);
   margin: $spacing-l $spacing-m;
   // max-width: 700px;
   position: relative;
@@ -18,9 +17,10 @@ MAIN CONTENT
 
 .white-panel {
   background: white;
-  border: 1px solid darken($bodyBackColor, 5%);
+  box-shadow: 0 2px 0 darken($bodyBackColor, 3%);
   border-radius: $borderRadius;
   padding: $spacing-s;
+  @extend %clearfix;
 }
 
 .page__title {
@@ -33,6 +33,32 @@ MAIN CONTENT
 
 
 /* Posts Styles */
+
+.posts {
+  list-style-type: none;
+  margin: 0;
+}
+
+.post {
+  border-bottom: 1px solid $borderColor;
+  padding-bottom: $spacing-s;
+  margin-bottom: $spacing-s;
+  &:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  h3 {
+    margin-bottom: 0;
+    small {
+      color: lighten($bodyColor, 35%);
+      margin-left: $spacing-xxs;
+    }
+  }
+}
+
+.post_content {
+  margin-bottom: 0;
+}
 
 .comments {
   margin: 0 0 $spacing-l;

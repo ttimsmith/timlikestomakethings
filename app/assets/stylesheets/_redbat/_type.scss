@@ -113,7 +113,7 @@ TEXT
   font-size: 95%;
 }
 
-.pubdate {
+.pubdate, .slug {
   color: lighten($bodyColor, 20%);
   margin-bottom: $spacing-xxs;
 }

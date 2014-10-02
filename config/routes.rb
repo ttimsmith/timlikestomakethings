@@ -19,9 +19,7 @@ Rails.application.routes.draw do
 
   # Manage Panel
   namespace :manage do
-    resources :posts, only: [:create, :index, :new]
-
-    resources :posts, only: [:edit, :update] do
+    resources :posts do
       resources :comments
     end
   end

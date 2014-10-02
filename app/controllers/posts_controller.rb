@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   layout 'admin'
 
   def index
-    @posts = Post.published.to_a
+    @posts = Post.published.order('created_at DESC').with_comment_count.to_a
   end
 
   def show
