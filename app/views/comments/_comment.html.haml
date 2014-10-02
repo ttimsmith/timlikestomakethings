@@ -7,8 +7,8 @@
       %p.comment__author
         %strong
           = comment.user.full_name
-        %small
-          = comment.created_at.stamp('June 3rd, 2013')
+        %small.comment__time
+          = local_time_ago(comment.created_at)
 
 
       :markdown
