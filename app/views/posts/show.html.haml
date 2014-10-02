@@ -9,6 +9,6 @@
 
 .comment__form
   = simple_form_for [@post, @comment] do |f|
-    = f.input :body, placeholder: 'Add a comment…', label_html: { class: 'hide' }
+    = f.input :body, placeholder: 'Add a comment…', label_html: { class: 'hide' }, hint: 'HTML and Markdown allowed.'
     = f.submit class: 'button radius'
 
