@@ -1,12 +1,12 @@
 = content_for :title, 'Comments'
-= content_for :subtitle, "#{@post.title}"
+= content_for :subtitle, "#{rubypants(@post.title.titleize)}".html_safe
 
 - if @comments.present?
   %table
     %thead
       %tr
-        %th{ colspan: '2', width: '650' } Author
-        %th Comment
+        %th{ colspan: '2' } Author
+        %th{ width: '530' } Comment
     %tbody
       = render @comments
 - else
