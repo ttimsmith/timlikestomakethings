@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_member_user
+  before_filter :find_post, only: :show
   layout 'admin'
 
   def index
@@ -7,9 +8,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.published.find(params[:id])
-    @comment = Comment.new
-
-    @comments = @post.comments.to_a
+    @comments = @post.comments.includes(:user).order('created_at DESC').to_a
   end
+
+  def find_post
+    @post = Post.published.find(params[:id])
+  end
+
 end

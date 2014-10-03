@@ -15,9 +15,9 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
-  # def avatar_url(user)
-  #   user.avatar_url(:user_avatar) || gravatar_url(user)
-  # end
+  def avatar_url(user)
+    gravatar_url(user)
+  end
 
   def gravatar_url(user)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)

@@ -48,7 +48,8 @@ class Admin::UsersController < Admin::BaseController
       :password,
       :role_id,
       :slug,
-      :twitter_handle
+      :twitter_handle,
+      :website
     )
   end
 end
