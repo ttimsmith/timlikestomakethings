@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   delegate :member?, to: :role
 
   # Scopes
-  scope :members, -> { where(role_id: Role.member) }
+  scope :members, -> { where(role_id: 0) }
 
   # Instance Methods
 
