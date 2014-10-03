@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    # users = User.order(:full_name)
-    @members = User.order(:full_name)
-    # @members = users.members.page(params[:page]).per_page(20).to_a
+    @members = User.members.order(:full_name).page(params[:page]).per_page(20)
   end
 
   def show
