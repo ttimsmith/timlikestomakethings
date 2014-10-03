@@ -52,12 +52,21 @@
             = val
             = link_to '&times;'.html_safe, '#', class: 'close'
 
-        - if signed_in? && current_user.admin?
-          .content__top-bar
-            %ul.top-bar__links
-              %li= link_to 'New User', new_admin_user_path
-              %li= link_to 'New Post', new_manage_post_path
-              %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+        .content__top-bar
+          %ul.top-bar__links
+            - if admin_signed_in?
+              %li
+                = link_to new_admin_user_path do
+                  %span.fa.fa-user
+                  New User
+              %li
+                = link_to new_manage_post_path do
+                  %span.fa.fa-pencil-square-o
+                  New Post
+            %li
+              = link_to destroy_user_session_path, method: :delete do
+                %span.fa.fa-sign-out
+                Log Out
 
 
         .content__wrapper
