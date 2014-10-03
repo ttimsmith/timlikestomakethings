@@ -17,5 +17,5 @@
 .comment__form
   = simple_form_for [@post, @comment] do |f|
     = f.input :body, placeholder: 'Add a comment…', label_html: { class: 'hide' }, hint: 'HTML and Markdown allowed.'
-    = f.submit class: 'button radius'
+    = f.button :button, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating Comment…" }
 

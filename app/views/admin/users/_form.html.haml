@@ -16,12 +16,12 @@
     %hr/
     = f.input :password
 
-  = f.submit class: 'button radius', value: "Update #{@user.full_name}"
+  = f.button :button, "Update #{@user.full_name}".html_safe, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving" }
 
 - if @user.persisted?
   = simple_form_for [:admin, @user] do |f|
     %hr
-    %h5 Reset Password
+    %h4 Reset Password
     = f.input :password, label: 'New password'
 
-    = f.submit class: 'button radius', value: "Update #{@user.full_name} Password"
+    = f.button :button, "Update #{@user.full_name} Password".html_safe, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating Password" }

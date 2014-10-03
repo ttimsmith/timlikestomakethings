@@ -28,14 +28,23 @@
               %ul
                 %li
                   %label Admin
-                %li= link_to 'Users', admin_root_path
-                %li= link_to 'Posts', manage_posts_path
+                %li
+                  = link_to admin_root_path do
+                    %span.fa.fa-users.fa-fw
+                    Users
+                %li
+                  = link_to manage_posts_path do
+                    %span.fa.fa-keyboard-o.fa-fw
+                    Posts
           - if current_user.member?
             %section.nav__list
               %ul
                 %li
                   %label Main
-                %li= link_to 'Member Updates', posts_path
+                %li
+                  = link_to posts_path do
+                    %span.fa.fa-line-chart.fa-fw
+                    Member Updates
 
       %main.site__content{ role: 'main' }
         - flash.each do |key, val|

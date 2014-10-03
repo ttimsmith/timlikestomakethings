@@ -8,4 +8,4 @@
 
   = f.input :post_content, placeholder: 'Type you message here… (HTML and/or Markdown allowed.)', label_html: { class: 'hide' }, input_html: { class: 'modern-input'}
 
-  = f.submit class: 'button radius right'
+  = f.button :button, class: 'button radius right', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving" }
