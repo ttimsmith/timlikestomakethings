@@ -1,4 +1,4 @@
-= content_for :title, "#{@post.title.titleize}"
+= content_for :title, "#{rubypants(@post.title.titleize)}".html_safe
 
 %p.pubdate.size-xs
   Posted by #{@post.user.full_name}

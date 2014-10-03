@@ -3,7 +3,7 @@ module ApplicationHelper
 
   # Let's Use Markdown Biatches
   def markdown(text)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
+    renderer = Redcarpet::Render::SmartyHTML
     options = {
       autolink: true,
       no_intra_emphasis: true,
@@ -13,6 +13,10 @@ module ApplicationHelper
       superscript: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
+
+  def rubypants(text)
+    RubyPants.new(text).to_html.html_safe
   end
 
   def avatar_url(user)

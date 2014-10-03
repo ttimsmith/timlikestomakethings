@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'thin'
 gem 'turbolinks'
 gem 'redcarpet'
+gem 'rubypants'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'spring',        group: :development

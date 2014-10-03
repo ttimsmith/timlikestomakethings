@@ -9,6 +9,4 @@
         %small.comment__time
           = local_time_ago(comment.created_at)
 
-
-      :markdown
-        #{comment.body}
+      = markdown comment.body

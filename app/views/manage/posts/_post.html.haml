@@ -1,7 +1,8 @@
 %tr
   %td
     %strong
-      = link_to post.title.titleize, edit_manage_post_path(post)
+      = link_to edit_manage_post_path(post) do
+        = rubypants post.title.titleize
   %td= local_time(post.created_at)
   %td= link_to "Comments", manage_post_comments_path(post_id: post)
   %td= link_to 'Delete', manage_post_path(post), class: 'delete-link',
