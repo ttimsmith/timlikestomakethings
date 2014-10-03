@@ -67,9 +67,11 @@ HEADER
   border-bottom: 1px solid darken($bodyBackColor, 5%);
   box-shadow: 0 1px 2px darken($bodyBackColor, 3%);
   text-align: right;
+  position: relative;
 }
 
 .top-bar__links {
+  display: inline-block;
   margin: 0;
   list-style-type: none;
   li {
@@ -91,4 +93,43 @@ HEADER
       }
     }
   }
+}
+
+.top-bar__user {
+  border-left: 1px solid $borderColor;
+  display: inline-block;
+  padding: $spacing-xxs $spacing-xs;
+}
+
+.top-bar__dropdown {
+  background-color: $darkColor;
+  border-radius: $borderRadius;
+  box-shadow: 1px 1px 5px darken($bodyBackColor, 3%);
+  position: absolute;
+  top: 65px;
+  right: $spacing-xxs;
+  margin: 0;
+  @extend %sans;
+  li {
+    border-bottom: 1px solid darken($darkColor, 5%);
+    list-style-type: none;
+    display: block;
+    font-size: .9em;
+    padding: 10px 25px;
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  opacity: 0;
+  pointer-events: none;
+  text-align: left;
+
+  @include transition(.2s ease-in-out);
+}
+
+.top-bar__dropdown.MenuIsOpen {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
 }
