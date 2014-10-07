@@ -26,3 +26,8 @@ gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
 gem 'validate_url'
 gem 'will_paginate', '~> 3.0'
+
+
+group :production do
+  gem 'rails_12factor'
+end
