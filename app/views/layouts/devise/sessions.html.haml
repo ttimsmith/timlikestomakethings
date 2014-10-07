@@ -1,0 +1,28 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Tim Likes to Make Things"
+
+    / Typekit Code
+    %script{:src => "//use.typekit.net/vci5orz.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tag
+
+  %body.page__login
+    %main.login__main{ role: 'main' }
+      - flash.each do |key, val|
+        %div{ class: "alert-box #{key}", data: { alert: true } }
+          = val
+          = link_to '&times;'.html_safe, '#', class: 'close'
+      .row
+        = yield
+
+    = javascript_include_tag 'application'

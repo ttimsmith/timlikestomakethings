@@ -1,0 +1,23 @@
+= content_for :title, 'Login'
+.large-5.medium-7.small-12.small-centered.columns.login__form
+  %header.login__header
+    = link_to 'Tim Likes to Make Things', new_user_session_path, class: 'logo'
+    %h2 Member Login
+    %p Login for members of Tim Likes to Make Things. All the special access content is behind these doors.
+  %hr/
+
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .input
+      = f.label :email
+      = f.email_field :email, :autofocus => true
+
+    .input
+      = f.label :password
+      = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      .remember-me-box
+        = f.check_box :remember_me
+        = f.label :remember_me
+
+    = f.button "Login", class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Logging in…" }

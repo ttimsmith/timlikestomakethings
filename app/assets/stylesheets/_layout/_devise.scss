@@ -1,0 +1,48 @@
+/*
+
+DEVISE
+---------------------------------------------------------
+
+*/
+
+.page__login {
+  background: $jazzColor;
+  .logo {
+    margin: 0 auto $spacing-s;
+  }
+}
+
+.login__main {
+  margin: $spacing-m 0;
+  h2, label {
+    color: white;
+  }
+  p {
+    color: lighten($jazzColor, 25%);
+  }
+  hr {
+    border: solid lighten($jazzColor, 10%);
+  }
+}
+
+.login__header {
+  text-align: center;
+}
+
+.login__form {
+  input {
+    box-shadow: none;
+    border: 0;
+    &:focus {
+      background: lighten(#feffd0, 2%);
+      box-shadow: none;
+      border: 0;
+    }
+  }
+  button, .button {
+    background: $darkColor;
+    &:hover, &:focus {
+      background: darken($darkColor, 5%);
+    }
+  }
+}
