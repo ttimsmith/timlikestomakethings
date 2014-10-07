@@ -97,3 +97,14 @@ textarea {
 .button {
   margin-top: $spacing-s;
 }
+
+.section__avatar {
+  img {
+    float: left;
+    margin-right: $spacing-xs;
+  }
+  p {
+    display: inline;
+    vertical-align: middle;
+  }
+}

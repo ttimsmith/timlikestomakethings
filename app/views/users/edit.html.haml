@@ -2,6 +2,12 @@
 = content_for :subtitle, "#{current_user.full_name}"
 
 = simple_form_for current_user, url: current_user_path(method: :put, secure: true) do |f|
+  .input
+    %label Avatar
+    .clearfix.section__avatar
+      = image_tag avatar_url(current_user), height: '75', width: '75', class: 'user__picture'
+      %p Avatars are managed through #{link_to 'Gravatar.com', "http://gravatar.com"}.
+  %hr/
   = f.input :full_name
   = f.input :email
 
