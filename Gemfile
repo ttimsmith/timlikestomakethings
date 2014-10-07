@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'active_hash'
 gem 'bourbon'
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'foundation-rails'
