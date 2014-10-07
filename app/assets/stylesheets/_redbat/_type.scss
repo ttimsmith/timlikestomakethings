@@ -164,7 +164,7 @@ LINKS
 
 a {
 	color: $linkColor;
-	@include transition(.2s ease-in-out);
+	@include transition(.2s ease);
 	&:hover {
 		color: darken($linkColor, 10%);
 	}
