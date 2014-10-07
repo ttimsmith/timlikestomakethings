@@ -102,23 +102,37 @@ HEADER
 }
 
 .top-bar__dropdown {
-  background-color: $darkColor;
+  background-color: $jazzColor;
   border-radius: $borderRadius;
-  box-shadow: 1px 1px 5px darken($bodyBackColor, 3%);
+  // box-shadow: 1px 1px 0 lighten($darkColor, 40%);
   position: absolute;
-  top: 65px;
+  top: 68px;
   right: $spacing-xxs;
   margin: 0;
   @extend %sans;
   li {
-    border-bottom: 1px solid darken($darkColor, 5%);
+    border-bottom: 1px solid lighten($jazzColor, 5%);
     list-style-type: none;
     display: block;
     font-size: .9em;
-    padding: 10px 25px;
+    padding: 10px 15px;
+    a {
+      color: white;
+      &:focus, &:hover {
+        color: lighten($jazzColor, 25%);
+      }
+    }
     &:last-child {
       border: 0;
     }
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: -6px;
+    left: 80px;
+    @include triangle(12px, $jazzColor, up);
   }
 
   opacity: 0;
