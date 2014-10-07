@@ -1,13 +1,13 @@
-= content_for :title, 'People'
+= content_for :title, 'Members'
 = content_for :description, 'Our amazing members.'
-.small-12.medium-9.columns.small-centered
+.small-12.medium-10.columns.small-centered
   %h2 Members
-  %p Our amazing members.
+  %p The awesome members who are supporting Tim make things.
   %hr/
-  %h3.subheader.margin-bottom-s Members
   .small-block-grid-2.medium-block-grid-4
     - @members.each do |user|
       %li
         = link_to user_path(user) do
           = image_tag avatar_url(user), width: '300'
           %p.size-xxs.text-center= user.full_name
+  = will_paginate @members, previous_label: '‹', next_label: '›', inner_window: 2

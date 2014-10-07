@@ -1,18 +1,23 @@
 = content_for :title, "#{@user.full_name}"
-.small-12.medium-9.columns.small-centered.user__profile
-  = image_tag avatar_url(@user), height: '150', width: '150'
-  %h2 #{@user.full_name}
-  %p
+
+.small-12.medium-3.columns.user__sidebar
+  = image_tag avatar_url(@user), height: '150', width: '150', class: 'user__picture'
+  %ul.user__links
     - if @user.website.present?
-      = link_to @user.website, @user.website
-
-    - if @user.website.present? && @user.twitter_handle.present?
-      = '&middot;'.html_safe
-
+      %li
+        = link_to @user.website, title: "Link to the website of #{@user.full_name}" do
+          %span.fa.fa-anchor.fa-fw
+          = @user.website
     - if @user.twitter_handle.present?
-      / = link_to_twitter @user
+      %li
+        = link_to "http://twitter.com/#{@user.twitter_handle}", title: "Link to the Twitter profile of #{@user.full_name}" do
+          %span.fa.fa-twitter.fa-fw
+          @#{@user.twitter_handle}
+
+.small-12.medium-9.columns.user__profile
+  %h2
+    = @user.full_name
+    %small Latte Member
 
   - if @user.bio?
-    .broadcaster-bio
-      = markdown @user.bio
-  %hr
+    = markdown @user.bio
