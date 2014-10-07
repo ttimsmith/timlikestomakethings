@@ -69,7 +69,7 @@
                   New Post
           .top-bar__user
             = image_tag avatar_url(current_user), height: '40', width: '40', class: 'user__picture'
-            = link_to "#", class: 'toggleNav' do
+            %button.toggleNav
               %span.fa.fa-chevron-down
             %ul.top-bar__dropdown
               %li
