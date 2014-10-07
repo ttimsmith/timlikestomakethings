@@ -5,6 +5,14 @@ MAIN CONTENT
 
 */
 
+/* Front-End Styles */
+
+.app-content__wrapper {
+  margin: $spacing-l $spacing-m;
+}
+
+
+/* Back-end Styles */
 .site__content {
   margin: 0 0 0 25%;
 }

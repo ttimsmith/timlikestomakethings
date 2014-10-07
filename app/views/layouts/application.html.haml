@@ -35,6 +35,7 @@
 
             - if current_user.member?
               %li= link_to 'Member Updates', posts_path
+              %li= link_to 'Members', users_path
             %li.has-dropdown
               = link_to current_user.full_name, '#'
               %ul.dropdown
@@ -44,14 +45,15 @@
             %li= link_to 'Login', new_user_session_path
             %li= link_to 'Sign Up', "#"
 
-    %section{ role: 'main' }
+    %main.app__content{ role: 'main' }
       - flash.each do |key, val|
         %div{ class: "alert-box #{key}", data: { alert: true } }
           = val
           = link_to '&times;'.html_safe, '#', class: 'close'
-      .row
-        .large-12
-          = yield
+      .app-content__wrapper
+        .row
+          .white-panel
+            = yield
 
     %section{ style: 'background: #EEE; margin-top: 100px'}
       .row{ style: 'padding-top: 20px' }

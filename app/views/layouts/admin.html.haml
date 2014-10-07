@@ -44,7 +44,11 @@
                 %li
                   = link_to posts_path do
                     %span.fa.fa-line-chart.fa-fw
-                    Member Updates
+                    Updates
+                %li
+                  = link_to users_path do
+                    %span.fa.fa-users.fa-fw
+                    Members
 
       %main.site__content{ role: 'main' }
         - flash.each do |key, val|
@@ -68,8 +72,14 @@
             = link_to "#", class: 'toggleNav' do
               %span.fa.fa-chevron-down
             %ul.top-bar__dropdown
-              %li= link_to 'Edit Profile', edit_current_user_path
-              %li= link_to 'Log Out', destroy_user_session_path, method: :delete
+              %li
+                = link_to edit_current_user_path do
+                  %span.fa.fa-cog.fa-fw
+                  Account Settings
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  %span.fa.fa-sign-out.fa-fw
+                  Log Out
 
 
 

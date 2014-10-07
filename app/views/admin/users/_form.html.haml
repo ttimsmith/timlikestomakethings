@@ -16,7 +16,9 @@
     %hr/
     = f.input :password
 
-  = f.button :button, "Update #{@user.full_name}".html_safe, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving" }
+    = f.button :button, "Create User".html_safe, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating User…" }
+  - else
+    = f.button :button, "Update #{@user.full_name}".html_safe, class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving…" }
 
 - if @user.persisted?
   = simple_form_for [:admin, @user] do |f|

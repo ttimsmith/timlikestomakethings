@@ -126,6 +126,8 @@ LAYOUT
 
 Layout Styles.
 
+- Admin
+
 - Header
 
 - Footer
@@ -133,6 +135,10 @@ Layout Styles.
 - Main Content
 
 - Pages
+
+- Devise
+
+- Users
 
 ------------------------------------------- */
 
@@ -145,3 +151,7 @@ Layout Styles.
 @import "_layout/pages";
 
 @import "_layout/footer";
+
+@import "_layout/devise";
+
+@import "_layout/users";

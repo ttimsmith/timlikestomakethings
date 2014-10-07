@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def edit
+    render layout: 'admin'
   end
 
   def index

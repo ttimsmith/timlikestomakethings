@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  # Let's link to Twitter
+  def link_to_twitter(user)
+    twitter_handle = user.twitter_handle
+
+    link_to "@#{twitter_handle}", "http://twitter.com/#{twitter_handle}", class: 'twitter-link'
+  end
 
   # Let's Use Markdown Biatches
   def markdown(text)
