@@ -68,14 +68,17 @@ HEADER
   box-shadow: 0 1px 2px darken($bodyBackColor, 3%);
   text-align: right;
   position: relative;
+  @include display(flex);
+  @include justify-content(flex-end);
+  // @extend %clearfix;
 }
 
 .top-bar__links {
-  display: inline-block;
+  border-right: 1px solid $borderColor;
+  @include display(flex);
   margin: 0;
   list-style-type: none;
   li {
-    display: inline-block;
     margin-right: 0;
     &:last-child {
       a {
@@ -96,12 +99,17 @@ HEADER
 }
 
 .top-bar__user {
-  border-left: 1px solid $borderColor;
-  display: inline-block;
   padding: $spacing-xxs $spacing-xs;
+  @include transition(.2s ease);
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    @include transform(scale3d(.9, .9, .9));
+  }
 }
 
-.top-bar__dropdown {
+.dropNav {
   background-color: $jazzColor;
   border-radius: $borderRadius;
   // box-shadow: 1px 1px 0 lighten($darkColor, 40%);
@@ -110,10 +118,13 @@ HEADER
   right: $spacing-xxs;
   margin: 0;
   @extend %sans;
+  display: block;
+  // @include display(flex);
+  // @include flex-direction(column);
   li {
     border-bottom: 1px solid lighten($jazzColor, 5%);
     list-style-type: none;
-    display: block;
+    // display: block;
     font-size: .9em;
     padding: 10px 15px;
     a {
@@ -139,10 +150,11 @@ HEADER
   pointer-events: none;
   text-align: left;
 
-  @include transition(.2s ease-in-out);
+  @include transition(opacity .2s ease-in-out);
 }
 
-.top-bar__dropdown.MenuIsOpen {
+.dropNav.MenuIsOpen {
+  display: block;
   opacity: 1;
   pointer-events: auto;
   z-index: 2;

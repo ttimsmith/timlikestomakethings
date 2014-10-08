@@ -67,11 +67,11 @@
                 = link_to new_manage_post_path do
                   %span.fa.fa-pencil-square-o
                   New Post
-          .top-bar__user
+          .top-bar__user.toggleNav
             = image_tag avatar_url(current_user), height: '40', width: '40', class: 'user__picture'
-            %button.toggleNav
+            %button
               %span.fa.fa-chevron-down
-            %ul.top-bar__dropdown
+            %ul.dropNav
               %li
                 = link_to edit_current_user_path do
                   %span.fa.fa-cog.fa-fw
