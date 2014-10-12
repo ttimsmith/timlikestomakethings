@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   # Associations
   belongs_to_active_hash :role
+  belongs_to_active_hash :plan
 
   has_many :posts
   has_many :comments
