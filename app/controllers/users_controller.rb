@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       :full_name,
       :password,
       :slug,
+      :stripe_token,
       :twitter_handle,
       :website
     )

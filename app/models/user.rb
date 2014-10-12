@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  attr_accessor :stripe_token
 
   extend ActiveHash::Associations::ActiveRecordExtensions
 
