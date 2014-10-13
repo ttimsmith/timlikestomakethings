@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   # Devise Routes
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_up: 'join'}
+  devise_for :users, controllers: { registrations: 'registrations' }, path: '',
+    path_names: { sign_in: 'login', sign_up: 'join'}
 
   resources :posts, only: [:index, :show] do
     resources :comments
