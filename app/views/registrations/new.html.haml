@@ -1,15 +1,21 @@
+= content_for :title, 'Become a Member'
 = content_for :head do
   = tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY
 
 .large-5.medium-7.small-12.small-centered.columns.login__form
+  %header.login__header
+    = link_to 'Tim Likes to Make Things', new_user_session_path, class: 'logo'
+    %h2 Become a Member
+    %p Join the membership, support Tim in making things, and get behind-the-scenes access to secret content.
+  %hr/
+
   %div#stripe_error.alert-box.alert{ data: { alert: true }, style: 'display:none' }
-  %h2 Sign up
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f|
-    = f.input :name
-    = f.input :email
+    = f.input :name, autofocus: true
+    = f.input :email, required: true
     = f.input :plan_id, as: :select, collection: @plans, include_blank: false
-    = f.input :password
-    = f.input :password_confirmation
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
     - if @user.stripe_token
       %p Credit card acceptance is pending.
     - else
@@ -25,5 +31,5 @@
         = select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { name: nil, id: "card_year" }
       = f.hidden_field :stripe_token
 
-    = f.button :submit, 'Sign up', class: 'button radius'
+    = f.button :submit, 'Sign up', class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing Up…" }
 
