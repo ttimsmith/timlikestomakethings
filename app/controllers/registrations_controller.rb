@@ -32,7 +32,8 @@ class RegistrationsController < Devise::RegistrationsController
       :password,
       :name,
       :password_confirmation,
-      :stripe_token
+      :stripe_token,
+      :plan_id
     )
   end
 end

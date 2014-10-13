@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
         :email => email,
         :description => name,
         :card => stripe_token,
-        :plan => Plan.find(plan_id).stripe_id #This is where I'm having troubles
+        :plan => Plan.find(plan_id).stripe_id
         )
     else
       customer = Stripe::Customer.retrieve(customer_id)
