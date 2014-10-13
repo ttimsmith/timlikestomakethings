@@ -2,11 +2,11 @@ class Plan < ActiveHash::Base
   include ActiveHash::Associations
 
   self.data = [
-    { id: 0, name: 'Americano' },
-    { id: 1, name: 'Caramel Latte' },
-    { id: 2, name: 'Latte' },
-    { id: 3, name: 'Esperesso' },
-    { id: 4, name: 'Executive Producer' }
+    { id: 0, name: 'Americano', stripe_id: '-5-month_CMCU8401Fu' },
+    { id: 1, name: 'Caramel Latte', stripe_id: 'carmel-latte_CMCU8401Fu' },
+    { id: 2, name: 'Latte', stripe_id: '-20-month_CMCU8401Fu' },
+    { id: 3, name: 'Esperesso', stripe_id: 'espresso_CMCU8401Fu' },
+    { id: 4, name: 'Executive Producer', stripe_id: 'executive-producer_CMCU8401Fu' }
   ]
 
   has_many :users
