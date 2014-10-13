@@ -44,7 +44,7 @@ class Admin::UsersController < Admin::BaseController
     params.require(:user).permit(
       :bio,
       :email,
-      :full_name,
+      :name,
       :password,
       :role_id,
       :slug,

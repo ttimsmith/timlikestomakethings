@@ -7,6 +7,8 @@
 
     %title= content_for?(:title) ? yield(:title) : "Tim Likes to Make Things"
 
+    = yield(:head)
+
     / Typekit Code
     %script{:src => "//use.typekit.net/vci5orz.js"}
     :javascript
@@ -15,7 +17,7 @@
     = stylesheet_link_tag "application"
     = csrf_meta_tag
 
-  %body.page__login
+  %body.registrations.page__login
     %main.login__main{ role: 'main' }
       - flash.each do |key, val|
         %div{ class: "alert-box #{key}", data: { alert: true } }
