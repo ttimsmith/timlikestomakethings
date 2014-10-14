@@ -15,12 +15,13 @@ $('.registrations').ready(function() {
         },
         processCard: function() {
           var card;
+          expiration = $('#expiry').payment('cardExpiryVal');
           card = {
             name: $('#user_name').val(),
             number: $('#card_number').val(),
             cvc: $('#card_code').val(),
-            expMonth: $('#card_month').val(),
-            expYear: $('#card_year').val()
+            expMonth: $('#card_month').val(expiration.month || 0),
+            expYear: $('#card_year').val(expiration.year || 0)
           };
           return Stripe.createToken(card, subscription.handleStripeResponse);
         },
