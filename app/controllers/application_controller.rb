@@ -2,8 +2,15 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :set_a_flash_message
 
   private
+  def set_a_flash_message
+    flash.now[:success] = "This is a great success!"
+    flash.now[:notice] = "This is a great notice!"
+    flash.now[:error] = "This is a great error!"
+    flash.now[:alert] = "This is a great alert!"
+  end
 
   def admin_signed_in?
     signed_in? && current_user.admin?
