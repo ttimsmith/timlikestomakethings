@@ -105,7 +105,7 @@ HEADER
     cursor: pointer;
   }
   &:active {
-    @include transform(scale3d(.9, .9, .9));
+    // @include transform(scale3d(.9, .9, .9));
   }
 }
 

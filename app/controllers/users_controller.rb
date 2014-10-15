@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
   def update
     if current_user.update_attributes user_params
       redirect_to root_path, flash: { success: 'You have successfully updated your profile' }
@@ -27,9 +28,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :bio,
       :email,
-      :full_name,
+      :name,
       :password,
       :slug,
+      :stripe_token,
       :twitter_handle,
       :website
     )

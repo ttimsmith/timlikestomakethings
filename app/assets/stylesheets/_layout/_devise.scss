@@ -5,6 +5,8 @@ DEVISE
 
 */
 
+/* Login Styles */
+
 .page__login {
   background: $jazzColor;
   .logo {
@@ -30,9 +32,10 @@ DEVISE
 }
 
 .login__form {
-  input {
+  input, textarea {
     box-shadow: none;
     border: 0;
+    resize: none;
     &:focus {
       background: lighten(#feffd0, 2%);
       box-shadow: none;
@@ -46,3 +49,44 @@ DEVISE
     }
   }
 }
+
+
+/* Registrations Styles */
+
+h3 {
+  color: darken($jazzColor, 35%);
+}
+
+.radio_buttons {
+  .radio {
+    display: block;
+  }
+}
+
+.hint {
+  color: lighten($jazzColor, 25%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

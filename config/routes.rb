@@ -6,19 +6,20 @@ Rails.application.routes.draw do
     get route, action: action, on: :collection
   end
 
-  # Only generate root devise routes for sessions (sign in / sign out)
-  devise_for :users, only: [:passwords, :sessions], path: '', path_names: { sign_in: 'login' }
+  # Devise Routes
+  devise_for :users, controllers: { registrations: 'registrations' }, path: '',
+    path_names: { sign_in: 'login', sign_up: 'join'}
 
   resources :posts, only: [:index, :show] do
     resources :comments
   end
 
-  resource :user, only: [:edit, :update], as: 'current_user'
-
   resources :users, only: [:index, :show], path: 'members' do
     pretty_pagination :index
     pretty_pagination :show, ':id/page/:page'
   end
+
+  resource :user, only: [:edit, :update], as: 'current_user'
 
   #Admin Panel
   namespace :admin do
@@ -33,5 +34,7 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+
 
 end

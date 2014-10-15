@@ -22,6 +22,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'spring',        group: :development
 gem 'stamp'
+gem 'stripe'
+gem 'stripe_event'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'validate_url'

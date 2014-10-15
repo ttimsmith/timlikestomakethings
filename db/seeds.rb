@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-demo_user = User.create! full_name: 'Demo User', email: 'demo@example.com', password: 'demo1234', role: Role.admin
+demo_user = User.create! name: 'Demo User', email: 'demo@example.com', password: 'demo1234', role: Role.admin

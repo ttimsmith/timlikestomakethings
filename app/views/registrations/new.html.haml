@@ -1,0 +1,54 @@
+= content_for :title, 'Become a Member'
+= content_for :head do
+  = tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY
+
+.large-5.medium-7.small-12.small-centered.columns.login__form
+  %header.login__header
+    = link_to 'Tim Likes to Make Things', new_user_session_path, class: 'logo'
+    %h2 Become a Member
+    %p Join the membership, support Tim in making things, and get behind-the-scenes access to secret content.
+  %hr/
+
+  %div#stripe_error.alert-box.alert{ data: { alert: true }, style: 'display:none' }
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f|
+    %h3 Membership Level
+    = f.input :plan_id, as: :radio_buttons, collection: @plans, label: false, label_method: :plan_name, checked: 0, hint: 'Plans are billed monthly and can be cancelled at any time.'
+    %hr/
+
+    %h3 Your Profile
+    = f.input :name, autofocus: true
+    = f.input :twitter_handle, hint: 'Twitter Handle without @ symbol.'
+    = f.input :website, placeholder: 'http://iamsoawesome.com'
+    = f.input :bio, hint: 'HTML and Markdown allowed.'
+    %hr/
+
+    %h3 Account Credentials
+    = f.input :email, required: true, hint: 'Your email address is also used for your picture.'
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
+    %hr/
+
+    %h3 Payment Information
+    - if @user.stripe_token
+      %p Credit card acceptance is pending.
+    - else
+      .input
+        = label_tag :card_number, "Credit Card Number"
+        = text_field_tag :card_number, nil, name: nil, class: 'cc_num'
+      .row
+        .input.small-5.columns
+          .row
+            .small-12.columns
+              = label_tag :card_month, "Card Expiration"
+            .small-6.columns
+              = text_field_tag :card_month, nil, name: nil, class: 'cc_month', placeholder: 'MM', maxlength: '2'
+            .small-6.columns
+              = text_field_tag :card_year, nil, name: nil, class: 'cc_year', placeholder: 'YYYY', maxlength: '4'
+        .input.small-3.columns.end
+          = label_tag :card_code, "CVV"
+          = text_field_tag :card_code, nil, name: nil, size: 4, placeholder: '123', class: 'cc_cvc'
+      = f.hidden_field :stripe_token
+
+    %hr/
+    = f.button :submit, 'Sign up', class: 'button radius', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing Up…" }
+
