@@ -8,5 +8,4 @@ $(".toggleNav").on("click", function() {
 /* Payment Form Formatting */
 
 $('input.cc_num').payment('formatCardNumber');
-$('input.cc_expire').payment('formatCardExpiry');
 $('input.cc_cvc').payment('formatCardCVC');

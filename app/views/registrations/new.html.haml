@@ -36,14 +36,14 @@
         = label_tag :card_number, "Credit Card Number"
         = text_field_tag :card_number, nil, name: nil, class: 'cc_num'
       .row
-        .input.small-4.columns
+        .input.small-5.columns
           .row
             .small-12.columns
               = label_tag :card_month, "Card Expiration"
-            .small-12.columns
-              = text_field_tag :expiry, nil, name: nil, placeholder: 'MM / YYYY', class: 'cc_expire'
-              = hidden_field_tag :exp_month, nil, name: nil, id: "stripe-card-exp-month"
-              = hidden_field_tag :exp_year, nil, name: nil, id: "stripe-card-exp-year"
+            .small-6.columns
+              = text_field_tag :card_month, nil, name: nil, class: 'cc_month', placeholder: 'MM', maxlength: '2'
+            .small-6.columns
+              = text_field_tag :card_year, nil, name: nil, class: 'cc_year', placeholder: 'YYYY', maxlength: '4'
         .input.small-3.columns.end
           = label_tag :card_code, "CVV"
           = text_field_tag :card_code, nil, name: nil, size: 4, placeholder: '123', class: 'cc_cvc'
