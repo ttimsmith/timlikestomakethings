@@ -16,6 +16,8 @@
     = csrf_meta_tag
 
   %body
+    = render 'layouts/flash'
+
     %nav.top-bar{ data: { topbar: true } }
       %ul.title-area
         %li.name
@@ -45,10 +47,6 @@
             %li= link_to 'Sign Up', "#"
 
     %main.app__content{ role: 'main' }
-      - flash.each do |key, val|
-        %div{ class: "alert-box #{key}", data: { alert: true } }
-          = val
-          = link_to '&times;'.html_safe, '#', class: 'close'
       .app-content__wrapper
         .row
           .white-panel

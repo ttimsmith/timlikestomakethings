@@ -16,11 +16,8 @@
     = csrf_meta_tag
 
   %body.page__login
+    = render 'layouts/flash'
     %main.login__main{ role: 'main' }
-      - flash.each do |key, val|
-        %div{ class: "alert-box #{key}", data: { alert: true } }
-          = val
-          = link_to '&times;'.html_safe, '#', class: 'close'
       .row
         = yield
 
