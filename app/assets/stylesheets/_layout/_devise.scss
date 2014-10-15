@@ -12,6 +12,9 @@ DEVISE
   .logo {
     margin: 0 auto $spacing-s;
   }
+  .hint {
+    color: lighten($jazzColor, 25%);
+  }
 }
 
 .login__main {
@@ -62,31 +65,3 @@ h3 {
     display: block;
   }
 }
-
-.hint {
-  color: lighten($jazzColor, 25%);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
