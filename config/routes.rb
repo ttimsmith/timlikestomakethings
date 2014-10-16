@@ -35,6 +35,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # Account Panel
+  namespace :account do
+    resource :membership
+  end
+
 
 
 end

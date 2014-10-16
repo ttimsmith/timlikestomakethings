@@ -15,6 +15,9 @@ DEVISE
   .hint {
     color: lighten($jazzColor, 25%);
   }
+  h3 {
+    color: darken($jazzColor, 35%);
+  }
 }
 
 .login__main {
@@ -55,10 +58,6 @@ DEVISE
 
 
 /* Registrations Styles */
-
-h3 {
-  color: darken($jazzColor, 35%);
-}
 
 .radio_buttons {
   .radio {
