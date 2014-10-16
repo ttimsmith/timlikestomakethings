@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
         customer.card = stripe_token
       end
       customer.email = email
-      customer.description = full_name
+      customer.description = name
       customer.save
     end
 

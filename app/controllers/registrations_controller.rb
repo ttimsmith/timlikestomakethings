@@ -28,12 +28,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.require(:user).permit(
+      :bio,
       :email,
       :password,
       :name,
       :password_confirmation,
+      :plan_id,
       :stripe_token,
-      :plan_id
+      :twitter_handle
     )
   end
 end

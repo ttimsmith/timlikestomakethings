@@ -1,0 +1,27 @@
+= content_for :title, 'Account Settings'
+= content_for :subtitle, 'Membership'
+
+.row
+  .small-12.medium-4.columns
+    %h4.subheader Plan
+    %p.size-xs
+      %strong
+        = @plan.name
+
+  .small-12.medium-4.columns
+    %h4.subheader Price
+    %p.size-xs
+      %strong
+        #{@plan.price}/month
+
+  .small-12.medium-4.columns
+    %h4.subheader Member Since
+    %p.size-xs
+      %strong
+        = @user.created_at.stamp('July 12th, 2014')
+
+  .small-12.columns
+    %p If you have any questions about your membership, feel free to #{mail_to 'smith+membership@ttimsmith.com', "get in touch", subject: 'Question about Membership' }.
+
+%hr/
+
